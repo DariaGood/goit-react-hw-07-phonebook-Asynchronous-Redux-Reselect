@@ -43,8 +43,8 @@ export const ContactForm = () => {
     e.preventDefault();
 
     try {
-      data.find(contact => contact.userName === userName)
-        ? toast.error(`${userName} is already in contacts.`)
+      data && data.find(contact => contact.userName === userName)
+      ? toast.error(`${userName} is already in contacts.`)
         : await addContact({ userName, number });
     } catch (error) {
       console.log(error);
